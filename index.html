@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Próximamente... | Dino Nuggets</title>
+
+        <style>
+            /* Estilos generales */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body,
+            html {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f0f0f0; /* Color de fondo opcional */
+            }
+
+            /* Contenedor de las imágenes */
+            .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
+            }
+
+            /* Imagen de desktop - Visible solo en pantallas grandes */
+            .desktop-image {
+                display: none;
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Imagen móvil - Visible solo en pantallas pequeñas */
+            .mobile-image {
+                display: none;
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Media query para pantallas de desktop */
+            @media (min-width: 1024px) {
+                .desktop-image {
+                    display: block;
+                }
+            }
+
+            /* Media query para pantallas móviles */
+            @media (max-width: 768px) {
+                .mobile-image {
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+            <!-- Imagen para desktop (1920x1080) -->
+            <img
+                src="./assets/images/escritorio.jpg"
+                alt="Sitio en construcción"
+                class="desktop-image"
+            />
+
+            <!-- Imagen para móvil (750x1334) -->
+            <img
+                src="./assets/images/movil.jpg"
+                alt="Sitio en construcción"
+                class="mobile-image"
+            />
+        </div>
+    </body>
+</html>
