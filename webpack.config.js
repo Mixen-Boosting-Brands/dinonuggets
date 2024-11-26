@@ -9,7 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, "assets/js"),
         publicPath: "/assets/js/", // Ensure Webpack knows where to serve bundles from
     },
-    mode: "development",
+    mode: "production",
     module: {
         rules: [
             {
