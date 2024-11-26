@@ -1,0 +1,266 @@
+// Global styles
+html,
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    @include font-size(1.2rem);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    position: relative;
+}
+
+header,
+section,
+footer {
+    width: 100%;
+    float: left;
+    scroll-margin-top: 80px;
+}
+
+.mh-100 {
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    @include transition(ease, 0.3s);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+.btn {
+    color: $white;
+    font-weight: 700;
+    box-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        3px 3px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        color: $white;
+    }
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-bg-light {
+    background-color: #f4f4f4;
+
+    .card-title {
+        color: $primary;
+    }
+}
+
+form {
+    color: #b7b7b7;
+}
+
+.form-control {
+    background-color: #f4f4f4;
+    border: none;
+    border-radius: 20px;
+
+    &:focus {
+        background-color: #f4f4f4;
+    }
+}
+
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-control-plaintext ~ label::after,
+.form-floating > .form-select ~ label::after {
+    background-color: #f4f4f4;
+}
+
+.py-60 {
+    padding: 60px 0;
+}
+
+.pt-60 {
+    padding-top: 60px;
+}
+
+.pb-60 {
+    padding-bottom: 60px;
+}
+
+.py-30 {
+    padding: 30px 0;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+.pb-30 {
+    padding-bottom: 30px;
+}
+
+.whatsapp {
+    @include whatsapp-button;
+}
+
+header {
+    @include font-size(1rem);
+    font-weight: 700;
+    width: 100%;
+    height: auto;
+    padding: 15px 30px;
+    color: #7d4400;
+    position: fixed;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    @include transition(ease, 0.2s);
+
+    a {
+        color: #7d4400;
+        display: inline-block;
+
+        &::first-letter {
+            @include font-size(1.3rem);
+        }
+    }
+
+    #logo-navbar {
+        width: 100px;
+        @include transition(ease, 0.2s);
+    }
+
+    .list-inline-item:not(:last-child) {
+        margin-right: 2.8rem;
+    }
+
+    #mburger {
+        @include font-size(2rem);
+        color: #7d4400;
+
+        &:hover,
+        &:focus {
+            // color: ;
+        }
+    }
+}
+
+.navbar-scroll {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 10px 30px !important;
+    @include transition(ease, 0.3s);
+
+    #logo-navbar {
+        width: 120px !important;
+    }
+
+    #mburger {
+        // color: !important;
+    }
+}
+
+#mapa {
+    line-height: 0;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#jumbotron {
+    @include background("../images/bg-jumbotron.png", center, cover);
+    color: $white;
+    min-height: 100vh;
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        3px 3px 6px rgba(0, 0, 0, 0.1);
+
+    .container,
+    .row {
+        min-height: 100vh;
+    }
+
+    p {
+        @include font-size(1.4rem);
+        font-weight: 600;
+    }
+
+    .btn {
+        text-shadow: none;
+    }
+
+    #contenedor-info {
+        z-index: 1;
+    }
+
+    #thumb-jumbotron {
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+    }
+}
+
+#producto {
+    .bullet {
+        max-width: 40px;
+        vertical-align: middle;
+    }
+}
+
+#beneficios {
+    h1 {
+        color: $secondary;
+    }
+
+    .card {
+        text-align: center;
+
+        .card-body {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+}
+
+#testimonios {
+    @include background("../images/bg-testimonios.png", center, cover);
+}
+
+#contacto {
+    color: $primary;
+
+    #thumb-contacto {
+        position: relative;
+        right: -12px;
+    }
+}
+
+footer {
+    background-color: $primary;
+    color: $white;
+    @include font-size(2rem);
+
+    a {
+        color: $white;
+    }
+}

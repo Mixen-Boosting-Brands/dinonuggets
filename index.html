@@ -1,81 +1,682 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Próximamente... | Dino Nuggets</title>
+        <title>Dinonuggets - La opción ganadora para tu menú infantil</title>
 
-        <style>
-            /* Estilos generales */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+        <link
+            rel="icon"
+            type="image/png"
+            href="./favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+        <link rel="shortcut icon" href="./favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Dinonuggets" />
+        <link rel="manifest" href="./site.webmanifest" />
 
-            body,
-            html {
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #f0f0f0; /* Color de fondo opcional */
-            }
-
-            /* Contenedor de las imágenes */
-            .image-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                width: 100vw;
-                overflow: hidden;
-            }
-
-            /* Imagen de desktop - Visible solo en pantallas grandes */
-            .desktop-image {
-                display: none;
-                max-width: 100%;
-                height: auto;
-            }
-
-            /* Imagen móvil - Visible solo en pantallas pequeñas */
-            .mobile-image {
-                display: none;
-                max-width: 100%;
-                height: auto;
-            }
-
-            /* Media query para pantallas de desktop */
-            @media (min-width: 1024px) {
-                .desktop-image {
-                    display: block;
-                }
-            }
-
-            /* Media query para pantallas móviles */
-            @media (max-width: 768px) {
-                .mobile-image {
-                    display: block;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="./assets/css/styles.css" />
     </head>
     <body>
-        <div class="image-container">
-            <!-- Imagen para desktop (1920x1080) -->
-            <img
-                src="./assets/images/escritorio.jpg"
-                alt="Sitio en construcción"
-                class="desktop-image"
-            />
-
-            <!-- Imagen para móvil (750x1334) -->
-            <img
-                src="./assets/images/movil.jpg"
-                alt="Sitio en construcción"
-                class="mobile-image"
-            />
+        <div id="backdrop"></div>
+        <div class="menu">
+            <a id="cerrar-menu" href="javascript:void(0)">
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="menu-contenido">
+                <a class="anchor" id="btn-logo" href="#jumbotron">
+                    <img
+                        class="logo img-fluid"
+                        src="./assets/images/logo@2x.png"
+                        alt=""
+                    />
+                </a>
+                <nav>
+                    <ul id="navmenu" class="list-unstyled mb-0">
+                        <li>
+                            <a class="anchor" id="btn-nav-1" href="#jumbotron"
+                                >Inicio</a
+                            >
+                        </li>
+                        <li>
+                            <a class="anchor" id="btn-nav-2" href="#producto"
+                                >Producto</a
+                            >
+                        </li>
+                        <li>
+                            <a class="anchor" id="btn-nav-3" href="#beneficios"
+                                >Beneficios</a
+                            >
+                        </li>
+                        <li>
+                            <a class="anchor" id="btn-nav-4" href="#testimonios"
+                                >Testimonios</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <a
+                    href="#contacto"
+                    class="anchor btn btn-primary rounded-pill"
+                    id="btn-contacto"
+                    >Contacto</a
+                >
+            </div>
         </div>
+
+        <header id="navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 col-lg-2 my-auto">
+                        <a href="#jumbotron">
+                            <img
+                                src="./assets/images/logo@2x.png"
+                                alt=""
+                                class="logo img-fluid"
+                                id="logo-navbar"
+                            />
+                        </a>
+                    </div>
+                    <div class="col-6 col-lg-10 my-auto text-end">
+                        <nav class="d-none d-lg-block">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#jumbotron"> Inicio </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#producto"> Producto </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#beneficios"> Beneficios </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#testimonios"> Testimonios </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#contacto"> Contacto </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a
+                            id="mburger"
+                            class="d-lg-none"
+                            href="javascript:void(0)"
+                        >
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="jumbotron">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 my-auto">
+                        <div id="contenedor-info" class="position-relative">
+                            <img
+                                src="./assets/images/logo-dinonuggets@2x.png"
+                                alt=""
+                                id="logo-dinonuggets"
+                                class="img-fluid mb-3"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="0"
+                            />
+                            <h1
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="100"
+                            >
+                                La opción ganadora para tu menú infantil
+                            </h1>
+                            <p
+                                class="my-4"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="200"
+                            >
+                                Ofrece una ganancia de más del
+                                <strong>300%</strong> y sorprende a tus clientes
+                                más pequeños.
+                            </p>
+                            <a
+                                href="#contacto"
+                                class="btn btn-primary btn-lg rounded-pill"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="300"
+                                >Solicita más información</a
+                            >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 position-relative">
+                        <img
+                            id="thumb-jumbotron"
+                            src="./assets/images/thumb-jumbotron.png"
+                            alt=""
+                            class="img-fluid"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="400"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="producto" class="pt-60 pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 my-auto">
+                        <img
+                            src="./assets/images/thumb-producto.png"
+                            alt=""
+                            class="rounded img-fluid mb-4"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="0"
+                        />
+                    </div>
+                    <div class="col-lg-6 my-auto">
+                        <p
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
+                        >
+                            Nuestros
+                            <span class="text-primary"
+                                ><strong>Dinonuggets</strong></span
+                            >
+                            están hechos 100% de pechuga de pollo y vienen en
+                            divertidas formas de dinosaurio para atraer a los
+                            más peques.
+                        </p>
+                        <p
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="200"
+                        >
+                            Características principales:
+                        </p>
+                        <ul class="list-unstyled">
+                            <li
+                                class="mb-3"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="300"
+                            >
+                                <img
+                                    class="bullet"
+                                    src="./assets/images/ico-1.png"
+                                    alt=""
+                                />
+                                <strong>Fácil y rápida</strong> preparación
+                            </li>
+                            <li
+                                class="mb-3"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="400"
+                            >
+                                <img
+                                    class="bullet"
+                                    src="./assets/images/ico-2.png"
+                                    alt=""
+                                />
+                                Presentación <strong>atractiva</strong> para los
+                                niños
+                            </li>
+                            <li
+                                class="mb-3"
+                                data-aos="fade-up"
+                                data-aos-duration="1000"
+                                data-aos-delay="500"
+                            >
+                                <img
+                                    class="bullet"
+                                    src="./assets/images/ico-3.png"
+                                    alt=""
+                                />
+                                <strong>Calidad garantizada</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="pt-30 pb-60">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col text-center">
+                        <h1
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="0"
+                        >
+                            ¿Por qué incluir
+                            <span class="text-primary">Dinonuggets</span> en tu
+                            menú?
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div
+                            class="card text-bg-light mb-4"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
+                        >
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">
+                                        Beneficio económico
+                                    </h5>
+                                    <p class="card-text">
+                                        Explicación* sobre el margen de ganancia
+                                        superior al 300%, ideal para aumentar
+                                        los ingresos de los negocios.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div
+                            class="card text-bg-light mb-4"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="200"
+                        >
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">
+                                        Atractivo para el menú infantil
+                                    </h5>
+                                    <p class="card-text">
+                                        Que se exponga cómo los Dinonuggets se
+                                        vuelven un plato preferido por los niños
+                                        y que, al mismo tiempo, brindan
+                                        seguridad y calidad para los padres.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div
+                            class="card text-bg-light mb-4"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="300"
+                        >
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">
+                                        Calidad del producto
+                                    </h5>
+                                    <p class="card-text">
+                                        Hechos 100% de pechuga de pollo, sin
+                                        ingredientes artificiales o añadidos que
+                                        disminuyan su valor nutricional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <a
+                            href="#contacto"
+                            class="btn btn-primary btn-lg rounded-pill"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="400"
+                            >¡Pide tus dinonuggets!</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-60">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <!-- Slider main container -->
+                        <div
+                            class="swiper swiper-testimonios"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="0"
+                        >
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img
+                                            src="./assets/images/thumb-testimonio-1.png"
+                                            class="icon"
+                                            alt="..."
+                                        />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Restaurante
+                                            </h5>
+                                            <p class="card-text">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Sequi ut magnam perferendis
+                                                mollitia dolores odit distinctio
+                                                ea a corporis? Fuga accusantium
+                                                eius ad? Ipsa non doloremque
+                                                quas provident, eum error!
+                                            </p>
+                                            <p class="fw-bold">
+                                                ― Nombre del dueño
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="py-60">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 offset-lg-1 my-auto">
+                        <h2
+                            class="text-secondary"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="0"
+                        >
+                            ¿Estás interesado en vender?
+                        </h2>
+
+                        <h1
+                            class="mb-4"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
+                        >
+                            ¡Déjanos tus datos!
+                        </h1>
+
+                        <div id="form-messages"></div>
+
+                        <form
+                            action="./mailer.php"
+                            method="POST"
+                            class="row g-3 needs-validation contact-form mb-4 mb-lg-0"
+                            id="ajax-contact"
+                            novalidate
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="300"
+                        >
+                            <div class="col-md-12 form-floating">
+                                <input
+                                    type="text"
+                                    class="form-control shadow-none"
+                                    id="nombre"
+                                    name="nombre"
+                                    placeholder="Full name*"
+                                    pattern=".{5,50}"
+                                    required
+                                />
+                                <label for="nombre" class="form-label"
+                                    >Nombre*</label
+                                >
+                                <div class="valid-feedback">¡Luce bien!</div>
+                                <div class="invalid-feedback">
+                                    Por favor introduce tu nombre completo.
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-floating">
+                                <input
+                                    type="email"
+                                    class="form-control shadow-none"
+                                    id="correo"
+                                    name="correo"
+                                    placeholder="Email*"
+                                    required
+                                />
+                                <label for="correo" class="form-label"
+                                    >Correo*</label
+                                >
+                                <div class="valid-feedback">¡Luce bien!</div>
+                                <div class="invalid-feedback">
+                                    Por favor introduce un correo electrónico
+                                    válido.
+                                </div>
+                            </div>
+                            <div class="col-md-12 form-floating">
+                                <input
+                                    type="tel"
+                                    class="form-control shadow-none"
+                                    id="telefono"
+                                    name="telefono"
+                                    placeholder="Phone*"
+                                    required
+                                />
+                                <label for="telefono" class="form-label"
+                                    >Teléfono*</label
+                                >
+                                <div class="valid-feedback">¡Luce bien!</div>
+                                <div class="invalid-feedback">
+                                    Por favor introduce un número de teléfono
+                                    válido.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-5">
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-lg btn-block rounded-pill"
+                                >
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    Enviar
+                                </button>
+                                <div id="hold-on-a-sec">
+                                    <i
+                                        id="contact-spinner"
+                                        class="fas fa-spinner fa-spin"
+                                    ></i>
+                                    Enviando tu información, por favor espera un
+                                    momento....
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 my-auto">
+                        <img
+                            src="./assets/images/thumb-contacto.png"
+                            alt=""
+                            id="thumb-contacto"
+                            class="img-fluid"
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                            data-aos-delay="400"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                <a href="#" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#" target="_blank">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- a href="https://wa.me/52614?text=Hola%20FOO%20BAR,%20necesito%20información." class="whatsapp" target="_blank">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a -->
+
+        <script src="./assets/js/app.bundle.js"></script>
     </body>
 </html>

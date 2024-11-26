@@ -1,0 +1,109 @@
+#testimonios {
+    .swiper {
+        padding: 0;
+    }
+
+    .swiper-wrapper {
+        padding: 30px 0;
+    }
+
+    .swiper-slide {
+        transition: all 0.3s ease;
+        transform: scale(0.8); /* Initial scale for all slides */
+    }
+
+    .swiper-pagination {
+        bottom: 0;
+
+        .swiper-pagination-bullet {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-color: $primary;
+        border-radius: 50%;
+        color: $white;
+        width: 40px;
+        height: 40px;
+
+        &::after {
+            @include font-size(1.3rem);
+        }
+    }
+
+    .active {
+        transform: scale(1); /* Scaled up size for center slide */
+    }
+
+    .card {
+        background-color: $white;
+        position: relative;
+        box-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.2),
+            3px 3px 6px rgba(0, 0, 0, 0.1);
+
+        .icon {
+            border: 8px solid $secondary;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            color: $primary;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 328px;
+            @include absolute-center-x;
+            z-index: -1;
+        }
+    }
+}
+
+@include media-breakpoint-up(sm) {
+}
+
+@include media-breakpoint-up(md) {
+}
+
+@include media-breakpoint-up(lg) {
+    #testimonios {
+        .swiper-slide {
+            opacity: 0.6;
+        }
+
+        .swiper-slide.swiper-slide-active {
+            transform: scale(1); /* Make active slide full size */
+            opacity: 1; /* Make active slide fully visible */
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .card {
+            padding-left: 110px;
+
+            .icon {
+                width: 200px;
+                position: absolute;
+                left: -100px;
+                @include absolute-center-y;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+}
+
+@include media-breakpoint-up(xxl) {
+}
