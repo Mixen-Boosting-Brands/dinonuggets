@@ -35,7 +35,9 @@ if (isset($_POST["nombre"]) && isset($_POST["de-acuerdo"])) {
     $estado = strip_tags(trim($_POST["estado"]));
     $municipio = strip_tags(trim($_POST["municipio"]));
     $pais = strip_tags(trim($_POST["pais"]));
-    $negocio = strip_tags(trim($_POST["negocio_si"]));
+    $esNegocio = isset($_POST["negocio"]) ? $_POST["negocio"] : "";
+    $negocioTexto =
+        $esNegocio == "si" ? "Sí, es dueño de negocio" : "No tiene negocio";
     $deAcuerdo = isset($_POST["de-acuerdo"]) ? "Sí" : "No";
 
     // Eliminar saltos de línea
@@ -70,7 +72,7 @@ if (isset($_POST["nombre"]) && isset($_POST["de-acuerdo"])) {
             País: {$pais}<br>
             <br>
             <strong>Información adicional:</strong><br>
-            ¿Es dueño de negocio?: {$negocio}<br>
+            Negocio: {$negocioTexto}<br>
             Aceptó términos y condiciones: {$deAcuerdo}<br>
             <br>
             Este mensaje fue enviado a través del formulario de contacto en el sitio web de Dinonuggets.mx.";
