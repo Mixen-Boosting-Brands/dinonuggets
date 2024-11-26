@@ -55,9 +55,9 @@ window.addEventListener(
                                     $("#telefono").val("");
                                     $("#correo").val("");
                                     $("#cp").val("");
-                                    $("#estado").val("");
+                                    $("#estado").prop("selectedIndex", 0);
                                     $("#municipio").val("");
-                                    $("#pais").val("");
+                                    $("#pais").prop("selectedIndex", 0);
                                     $("#negocio_si").val("");
                                     $("#de-acuerdo").val("");
                                 }, 5000);
@@ -81,9 +81,9 @@ window.addEventListener(
                                     $("#telefono").val("");
                                     $("#correo").val("");
                                     $("#cp").val("");
-                                    $("#estado").val("");
+                                    $("#estado").prop("selectedIndex", 0);
                                     $("#municipio").val("");
-                                    $("#pais").val("");
+                                    $("#pais").prop("selectedIndex", 0);
                                     $("#negocio_si").val("");
                                     $("#de-acuerdo").val("");
                                 }, 5000);
