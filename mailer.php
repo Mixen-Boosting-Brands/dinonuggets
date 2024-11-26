@@ -50,7 +50,7 @@ if (isset($_POST["nombre"]) && isset($_POST["de-acuerdo"])) {
             "noreply@dinonuggets.mx",
             "Correo noreply@dinonuggets.mx"
         );
-        $mail->addAddress("luis.pando@mixen.mx");
+        $mail->addAddress("jacuna@bafar.com.mx");
         $mail->addReplyTo($correo, "Deseo obtener más información.");
 
         //Content
