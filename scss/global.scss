@@ -259,7 +259,6 @@ header {
 footer {
     background-color: $primary;
     color: $white;
-    @include font-size(2rem);
 
     a {
         color: $white;
