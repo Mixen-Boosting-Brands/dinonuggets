@@ -6,6 +6,31 @@ window.addEventListener(
         // Get the messages div.
         var formMessages = $("#form-messages");
 
+        // Manejo de campos de negocio
+        const radioSi = document.getElementById("negocio_si");
+        const radioNo = document.getElementById("negocio_no");
+        const camposNegocio = document.getElementById("campos-negocio");
+        const nombreNegocio = document.getElementById("nombre-negocio");
+        const giroNegocio = document.getElementById("giro-negocio");
+
+        function toggleCamposNegocio() {
+            if (radioSi.checked) {
+                camposNegocio.style.display = "block";
+                nombreNegocio.required = true;
+                giroNegocio.required = true;
+            } else {
+                camposNegocio.style.display = "none";
+                nombreNegocio.required = false;
+                giroNegocio.required = false;
+                // Limpiar campos cuando se selecciona "No"
+                nombreNegocio.value = "";
+                giroNegocio.value = "";
+            }
+        }
+
+        radioSi.addEventListener("change", toggleCamposNegocio);
+        radioNo.addEventListener("change", toggleCamposNegocio);
+
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.getElementsByClassName("needs-validation");
         // Loop over them and prevent submission
@@ -33,16 +58,12 @@ window.addEventListener(
                             processData: false,
                             contentType: false,
                             beforeSend: function () {
-                                // Let's show a message to the user
                                 $("#hold-on-a-sec").addClass("is-loading");
                             },
                             success: function (response) {
-                                // Make sure that the formMessages div has the 'success' class.
                                 $(form).removeClass("was-validated");
                                 $(formMessages).removeClass("error");
                                 $(formMessages).addClass("success");
-
-                                // Set the message text.
                                 $(formMessages).text(response);
                                 console.log(response);
 
@@ -58,17 +79,19 @@ window.addEventListener(
                                     $("#estado").prop("selectedIndex", 0);
                                     $("#municipio").val("");
                                     $("#pais").prop("selectedIndex", 0);
-                                    $("#negocio_si").val("");
-                                    $("#de-acuerdo").val("");
+                                    $("#negocio_si").prop("checked", false);
+                                    $("#negocio_no").prop("checked", false);
+                                    $("#nombre-negocio").val("");
+                                    $("#giro-negocio").prop("selectedIndex", 0);
+                                    $("#de-acuerdo").prop("checked", false);
+                                    // Ocultar campos de negocio
+                                    camposNegocio.style.display = "none";
                                 }, 5000);
                             },
                             error: function (response) {
-                                // Make sure that the formMessages div has the 'error' class.
                                 $("#hold-on-a-sec").removeClass("is-loading");
                                 $(formMessages).removeClass("success");
                                 $(formMessages).addClass("error");
-
-                                // Set the message text.
                                 $(formMessages).text(response);
                                 console.log(response);
 
@@ -84,16 +107,20 @@ window.addEventListener(
                                     $("#estado").prop("selectedIndex", 0);
                                     $("#municipio").val("");
                                     $("#pais").prop("selectedIndex", 0);
-                                    $("#negocio_si").val("");
-                                    $("#de-acuerdo").val("");
+                                    $("#negocio_si").prop("checked", false);
+                                    $("#negocio_no").prop("checked", false);
+                                    $("#nombre-negocio").val("");
+                                    $("#giro-negocio").prop("selectedIndex", 0);
+                                    $("#de-acuerdo").prop("checked", false);
+                                    // Ocultar campos de negocio
+                                    camposNegocio.style.display = "none";
                                 }, 5000);
 
-                                // Set the message text.
                                 if (response.responseText !== "") {
                                     $(formMessages).text(response.responseText);
                                 } else {
                                     $(formMessages).text(
-                                        "We're so sorry, something went horribly wrong."
+                                        "Lo sentimos, algo salió mal."
                                     );
                                 }
                             },

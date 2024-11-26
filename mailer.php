@@ -36,13 +36,28 @@ if (isset($_POST["nombre"]) && isset($_POST["de-acuerdo"])) {
     $municipio = strip_tags(trim($_POST["municipio"]));
     $pais = strip_tags(trim($_POST["pais"]));
     $esNegocio = isset($_POST["negocio"]) ? $_POST["negocio"] : "";
+
+    // Nuevos campos de negocio
+    $nombreNegocio = "";
+    $giroNegocio = "";
+    if ($esNegocio == "si") {
+        $nombreNegocio = strip_tags(trim($_POST["nombre-negocio"]));
+        $giroNegocio = strip_tags(trim($_POST["giro-negocio"]));
+    }
+
     $negocioTexto =
-        $esNegocio == "si" ? "Sí, es dueño de negocio" : "No tiene negocio";
+        $esNegocio == "si"
+            ? "Sí, es dueño de negocio<br>Nombre del negocio: {$nombreNegocio}<br>Giro del negocio: {$giroNegocio}"
+            : "No tiene negocio";
+
     $deAcuerdo = isset($_POST["de-acuerdo"]) ? "Sí" : "No";
 
     // Eliminar saltos de línea
     $nombre = str_replace(["\r", "\n"], [" ", " "], $nombre);
     $apellido = str_replace(["\r", "\n"], [" ", " "], $apellido);
+    if ($nombreNegocio) {
+        $nombreNegocio = str_replace(["\r", "\n"], [" ", " "], $nombreNegocio);
+    }
 
     try {
         //Recipients
@@ -72,7 +87,9 @@ if (isset($_POST["nombre"]) && isset($_POST["de-acuerdo"])) {
             País: {$pais}<br>
             <br>
             <strong>Información adicional:</strong><br>
-            Negocio: {$negocioTexto}<br>
+            <strong>Información del negocio:</strong><br>
+            {$negocioTexto}<br>
+            <br>
             Aceptó términos y condiciones: {$deAcuerdo}<br>
             <br>
             Este mensaje fue enviado a través del formulario de contacto en el sitio web de Dinonuggets.mx.";

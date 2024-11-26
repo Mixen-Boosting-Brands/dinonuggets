@@ -114,3 +114,27 @@ document.addEventListener("keydown", (event) => {
         cerrarMenu();
     }
 });
+
+// Mostrar/ocultar campos opcionales del formulario
+document.addEventListener("DOMContentLoaded", function () {
+    const radioSi = document.getElementById("negocio_si");
+    const radioNo = document.getElementById("negocio_no");
+    const camposNegocio = document.getElementById("campos-negocio");
+    const nombreNegocio = document.getElementById("nombre-negocio");
+    const giroNegocio = document.getElementById("giro-negocio");
+
+    function toggleCamposNegocio() {
+        if (radioSi.checked) {
+            camposNegocio.style.display = "block";
+            nombreNegocio.required = true;
+            giroNegocio.required = true;
+        } else {
+            camposNegocio.style.display = "none";
+            nombreNegocio.required = false;
+            giroNegocio.required = false;
+        }
+    }
+
+    radioSi.addEventListener("change", toggleCamposNegocio);
+    radioNo.addEventListener("change", toggleCamposNegocio);
+});
