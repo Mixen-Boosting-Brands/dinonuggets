@@ -25,7 +25,8 @@
         }
     }
 
-    #beneficios {
+    #beneficios,
+    #preparacion {
         .card {
             height: 420px;
         }
@@ -41,7 +42,8 @@
 
 // X-Large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) {
-    #beneficios {
+    #beneficios,
+    #preparacion {
         .card {
             height: 320px;
         }
